@@ -83,3 +83,4 @@ ua-parser
 urllib3
 user-agents
 wcwidth
+itranslate
