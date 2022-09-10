@@ -410,7 +410,7 @@ def page():
     with use_scope('ch',clear=True):
         put_html('''<hr>''')
         put_grid([[None,None,None,None,None,put_button(label='Normal Search',onclick=input,color='success',small=True,outline=True),
-                   put_button(label='Selector',onclick=select,color='success',small=True,outline=True),put_button(label='tabelse tra',onclick=tp,color='success',small=True,outline=True),None,None,None,None,None]])
+                   put_button(label='Selector',onclick=select,color='success',small=True,outline=True),None,None,None,None,None]])
 
 
 
