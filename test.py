@@ -5,6 +5,7 @@ from pywebio.pin import *
 from pywebio.platform import *
 import argparse
 from pywebio.input import *
+from tkinter import tk
 from pywebio.output import *
 from pywebio import start_server
 from pywebio.platform.flask import webio_view
