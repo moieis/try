@@ -11,68 +11,25 @@ from pywebio.platform.flask import webio_view
 from pywebio import STATIC_PATH
 from flask import Flask, send_from_directory
 app = Flask(__name__)
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
-from PyQt5.QtGui import QIcon
+import os
 
-
+import pandas as pd
+from pywebio.input import file_upload
+from pywebio.output import put_file,put_text
 def page():
-    put_button(label='hi',onclick=o)
-def o():
 
-        class App(QWidget):
+        form = file_upload('sdf')
+        fi = str(form['filename'])
+        if fi:
+            # This code will strip the leading absolute path from your file-name
+            fil = os.path.basename(fi)
 
-            def __init__(self):
-                super().__init__()
-                self.title = 'PyQt5 file dialogs - pythonspot.com'
-                self.left = 10
-                self.top = 10
-                self.width = 640
-                self.height = 480
-                self.initUI()
+            # open for reading & writing the file into the server
+            a=open(fi, 'wb').write(form['content'])
+            b=open(fi,'rb').read()
 
-            def initUI(self):
-                self.setWindowTitle(self.title)
-                self.setGeometry(self.left, self.top, self.width, self.height)
-
-                self.openFileNameDialog()
-                self.openFileNamesDialog()
-                self.saveFileDialog()
-
-                self.show()
-
-            def openFileNameDialog(self):
-                options = QFileDialog.Options()
-                options |= QFileDialog.DontUseNativeDialog
-                fileName, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "",
-                                                          "All Files (*);;Python Files (*.py)", options=options)
-                if fileName:
-                    print(fileName)
-
-            def openFileNamesDialog(self):
-                options = QFileDialog.Options()
-                options |= QFileDialog.DontUseNativeDialog
-                files, _ = QFileDialog.getOpenFileNames(self, "QFileDialog.getOpenFileNames()", "",
-                                                        "All Files (*);;Python Files (*.py)", options=options)
-                if files:
-                    print(files)
-
-            def saveFileDialog(self):
-                options = QFileDialog.Options()
-                options |= QFileDialog.DontUseNativeDialog
-                fileName, _ = QFileDialog.getSaveFileName(self, "QFileDialog.getSaveFileName()", "",
-                                                          "All Files (*);;Text Files (*.txt)", options=options)
-                if fileName:
-                    print(fileName)
-
-
-
-        app = QApplication(sys.argv)
-        ex = App()
-        sys.exit(app.exec_())
-
-
-
+            put_text(pd.read_csv(fi))
+            put_file(fi,b)
 
 
 if __name__ == "__main__":
