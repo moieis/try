@@ -11,30 +11,67 @@ from pywebio.platform.flask import webio_view
 from pywebio import STATIC_PATH
 from flask import Flask, send_from_directory
 app = Flask(__name__)
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PyQt5.QtGui import QIcon
+
+
+
 def page():
-                # first we will import the subprocess module
-        import subprocess
-        from pywebio.output import put_text
-        # now we will store the profiles data in "data" variable by
-        # running the 1st cmd command using subprocess.check_output
-        data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
+    put_button(label='hi',onclick=o)
+def o():
 
-        # now we will store the profile by converting them to list
-        profiles = [i.split(":")[1][1:-1] for i in data if "All User Profile" in i]
+        class App(QWidget):
 
-        # using for loop in python we are checking and printing the wifi
-        # passwords if they are available using the 2nd cmd command
-        for i in profiles:
-            # running the 2nd cmd command to check passwords
-            results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i,'key=clear']).decode('utf-8').split('\n')
-            # storing passwords after converting them to list
-            results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
-            # printing the profiles(wifi name) with their passwords using
-            # try and except method
-            try:
-                put_text("{:<30}|  {:<}".format(i, results[0]))
-            except IndexError:
-                put_text("{:<30}|  {:<}".format(i, ""))
+            def __init__(self):
+                super().__init__()
+                self.title = 'PyQt5 file dialogs - pythonspot.com'
+                self.left = 10
+                self.top = 10
+                self.width = 640
+                self.height = 480
+                self.initUI()
+
+            def initUI(self):
+                self.setWindowTitle(self.title)
+                self.setGeometry(self.left, self.top, self.width, self.height)
+
+                self.openFileNameDialog()
+                self.openFileNamesDialog()
+                self.saveFileDialog()
+
+                self.show()
+
+            def openFileNameDialog(self):
+                options = QFileDialog.Options()
+                options |= QFileDialog.DontUseNativeDialog
+                fileName, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "",
+                                                          "All Files (*);;Python Files (*.py)", options=options)
+                if fileName:
+                    print(fileName)
+
+            def openFileNamesDialog(self):
+                options = QFileDialog.Options()
+                options |= QFileDialog.DontUseNativeDialog
+                files, _ = QFileDialog.getOpenFileNames(self, "QFileDialog.getOpenFileNames()", "",
+                                                        "All Files (*);;Python Files (*.py)", options=options)
+                if files:
+                    print(files)
+
+            def saveFileDialog(self):
+                options = QFileDialog.Options()
+                options |= QFileDialog.DontUseNativeDialog
+                fileName, _ = QFileDialog.getSaveFileName(self, "QFileDialog.getSaveFileName()", "",
+                                                          "All Files (*);;Text Files (*.txt)", options=options)
+                if fileName:
+                    print(fileName)
+
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv)
+            ex = App()
+            sys.exit(app.exec_())
+
 
 
 
