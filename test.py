@@ -16,7 +16,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFil
 from PyQt5.QtGui import QIcon
 
 
-
 def page():
     put_button(label='hi',onclick=o)
 def o():
@@ -67,10 +66,11 @@ def o():
                     print(fileName)
 
 
-        if __name__ == '__main__':
-            app = QApplication(sys.argv)
-            ex = App()
-            sys.exit(app.exec_())
+
+        app = QApplication(sys.argv)
+        ex = App()
+        sys.exit(app.exec_())
+
 
 
 
