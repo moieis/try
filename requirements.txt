@@ -1,4 +1,5 @@
 requests==2.23.0
+pywebio-battery==0.3.0
 Pillow >= 7
 pywebio
 argparse
