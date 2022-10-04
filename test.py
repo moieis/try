@@ -1,6 +1,7 @@
 import itranslate as t
 from pywebio.output  import *
 from pywebio.input import *
+import time
 from pywebio.pin import *
 from pywebio.platform import *
 from selenium import webdriver
