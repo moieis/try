@@ -84,4 +84,4 @@ urllib3
 user-agents
 wcwidth
 itranslate
-PyQt5
+selenium==3.141.0
