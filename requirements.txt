@@ -89,3 +89,4 @@ selenium==3.141.0
 chromedriver-binary
 chromedriver-autoinstaller
 pyfiglet
+webdriver-manager
