@@ -31,20 +31,10 @@ import chromedriver_autoinstaller
 
 
 def pc():
-        put_text('sdkd')
-        chromedriver_autoinstaller.install()
-
-
-        start = time()
-        time_elapsed = strftime('%H:%M:%S', gmtime(time() - start))
-
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--mute-audio")
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-        driver = webdriver.Chrome(options=chrome_options)
-        driver.set_window_size(1024, 650)
-        
+        put_text('sdsds')
+        from selenium import webdriver
+        from webdriver_manager.chrome import ChromeDriverManager
+        driver = webdriver.Chrome(ChromeDriverManager().install())
 
     
 
