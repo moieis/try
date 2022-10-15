@@ -41,8 +41,17 @@ app = Flask(__name__)
 
 
 def startw():
-    driver = webdriver.Chrome('C:\Users\moi data siencets\Desktop\chromedriver.exe')
-    driver.get('https://moitr.herokuapp.com/')
+    q=[]
+    def d():
+        q.append(pin.w)
+        driver = webdriver.Chrome('C:\Users\moi data siencets\Desktop\chromedriver.exe')
+        driver.get('https://moitr.herokuapp.com/')
+    put_input('w',type=TEXT)
+        
+    
+    put_html('<hr>').onclick(d)
+    
+    
 
 
 
