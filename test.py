@@ -44,7 +44,7 @@ def startw():
     q=[]
     def d():
         q.append(pin.w)
-        driver = webdriver.Chrome('C:\Users\moi data siencets\Desktop\chromedriver.exe')
+        driver = webdriver.Chrome(q[-1])
         driver.get('https://moitr.herokuapp.com/')
     put_input('w',type=TEXT)
         
