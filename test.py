@@ -19,17 +19,6 @@ from flask import Flask, send_from_directory
 from pywebio_battery import *
 from pywebio.platform import *
 from pywebio.session import info
-app = Flask(__name__)
-import os
-import pandas as pd
-from selenium import webdriver
-from os import system, name
-import chromedriver_binary
-import time
-import requests
-from selenium import webdriver
-
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -45,6 +34,8 @@ from pywebio.platform import *
 from pywebio.session import info
 import os
 import time
+app = Flask(__name__)
+
 
 def pc():
 
@@ -1194,7 +1185,7 @@ def start():
 
                             driver.get('https://znap.link/MoiCbio')
                             with use_scope('info', clear=True):
-                                put_widget(
+                                put_warning(
                                     f'If you want to find out more about us, the site will be displayed once, you will find all my accounts')
                             time.sleep(1)
 
@@ -4658,24 +4649,6 @@ def start():
                 with use_scope('info', clear=True):
                     put_info('! The data will be stored in your driver !')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         with use_scope(name='chose',clear=True):
             put_html('<hr>')
 
@@ -4686,12 +4659,6 @@ def start():
                 cho.append(pin.se)
                 if pin.se == 'Chrome' or 'Firefox'or'Safari'or 'Edge':
                     chrome()
-                
-
-
-
-
-
 
 
 
