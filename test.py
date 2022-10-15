@@ -37,7 +37,7 @@ def page():
 
 
     driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver.get('httpfjdh')
+    driver.get('chrome-untrusted://terminal/html/terminal.html')
 
 
 
