@@ -25,7 +25,7 @@ import pandas as pd
 from selenium import webdriver
 from os import system, name
 import chromedriver_binary
-from time import time, strftime, gmtime, sleep
+import time
 import requests
 
 
