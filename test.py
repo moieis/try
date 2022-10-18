@@ -25,6 +25,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
+from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime
 from pywebio.input import *
 from pywebio.output import *
@@ -41,16 +42,10 @@ app = Flask(__name__)
 
 
 def startw():
-    q=[]
-    def d():
-        q.append(pin.w)
-        driver = webdriver.Chrome(q[-1])
-        driver.get('https://moitr.herokuapp.com/')
-    put_input('w',type=TEXT)
-        
-    
-    put_html('<hr>').onclick(d)
-    
+        put_html('dsds')
+        d = webdriver.Chrome(ChromeDriverManager().install())
+
+        d.get('https://github.com/settings/profile')
     
 
 
