@@ -1,7 +1,6 @@
 requests==2.23.0
 pywebio-battery==0.3.0
-selenium==4.5.0
-webdriver-manager
+selenium
 Pillow >= 7
 pywebio
 argparse
