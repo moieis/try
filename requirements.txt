@@ -87,7 +87,6 @@ urllib3
 user-agents
 wcwidth
 itranslate
-selenium==3.141.0
 chromedriver-binary
 chromedriver-autoinstaller
 pyfiglet
