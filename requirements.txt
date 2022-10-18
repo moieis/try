@@ -53,9 +53,6 @@ kiwisolver
 lxml
 matplotlib
 matplotlib-inline
-mysql
-mysql-connector-python
-mysqlclient
 nest-asyncio
 numpy
 openpyxl
