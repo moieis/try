@@ -25,7 +25,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
-from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime
 from pywebio.input import *
 from pywebio.output import *
