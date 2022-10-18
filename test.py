@@ -35,6 +35,10 @@ from pywebio.platform import *
 from pywebio.session import info
 import os
 import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from webdrivermanager.chrome import ChromeDriverManager
+
 app = Flask(__name__)
 
 
@@ -42,19 +46,10 @@ app = Flask(__name__)
 
 
 def startw():
-        put_html('dsds')
         
-        from selenium import webdriver
-        from selenium.webdriver.common.by import By
-        from selenium.webdriver.chrome.service import Service
-        from webdriver_manager.chrome import ChromeDriverManager
 
-        option = webdriver.ChromeOptions()
-        option.add_argument("start-maximized")
-
-
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
-        driver.get('https://www.google.com/')
+        driver = webdriver.Chrome(ChromeDriverManager().download_and_install())
+        driver.get("http://www.python.org")
 
 
 
