@@ -34,10 +34,7 @@ from pywebio.platform import *
 from pywebio.session import info
 import os
 import time
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from webdrivermanager.chrome import ChromeDriverManager
-
+from deep_daze import Imagine
 app = Flask(__name__)
 
 
@@ -47,11 +44,18 @@ app = Flask(__name__)
 def startw():
         
 
-        driver = webdriver.Chrome(ChromeDriverManager().download_and_install())
-        driver.get("http://www.python.org")
+
+                
 
 
 
+                imagine = Imagine(
+                    text='god',
+                    image_width=256,
+                    num_layers=16,
+                    batch_size=1,
+                    gradient_accumulate_every=16 # Increase gradient_accumulate_every to correct for loss in low batch sizes
+                )
 
 
 
